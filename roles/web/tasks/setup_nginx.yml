@@ -12,6 +12,18 @@
   copy: content="{{ ssl_key }}" dest={{ ssl_dest_dir }}/{{ application_name }}.key
   notify: restart nginx
 
+- name: Decrypt the SSL key
+  command: openssl rsa -in {{ ssl_dest_dir }}/{{ application_name }}.key
+           -out {{ ssl_dest_dir }}/decrypted.key -passin pass:{{ ssl_key_password }}
+           creates={{ ssl_dest_dir }}/decrypted.key
+  notify: restart nginx
+  when: env == "production"
+
+- name: Rename the decrypted SSL key
+  command: mv {{ ssl_dest_dir }}/decrypted.key {{ ssl_dest_dir }}/{{ application_name }}.key
+           removes={{ ssl_dest_dir }}/decrypted.key
+  when: env == "production"
+
 - name: Create the Nginx configuration file
   template: src=nginx_site_config.j2
             dest=/etc/nginx/sites-available/{{ application_name }}
