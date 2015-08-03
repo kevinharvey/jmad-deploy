@@ -28,17 +28,6 @@ ssl_dest_dir: /etc/ssl
 ssl_key_password: password
 
 
-# RabbitMQ settings.
-rabbitmq_server_name: "{{ inventory_hostname }}"
-
-rabbitmq_admin_user: admin
-rabbitmq_admin_password: password
-
-rabbitmq_application_vhost: "{{ application_name }}"
-rabbitmq_application_user: "{{ application_name }}"
-rabbitmq_application_password: password
-
-
 # Celery settings.
 celery_num_workers: 2
 flower_admin_password: password
@@ -48,7 +37,7 @@ flower_admin_password: password
 django_settings_file: "{{ application_name }}.settings.development"
 django_secret_key: "akr2icmg1n8%z^3fe3c+)5d0(t^cy-2_25rrl35a7@!scna^1#"
 
-broker_url: "amqp://{{ rabbitmq_application_user }}:{{ rabbitmq_application_password }}@localhost/{{ rabbitmq_application_vhost }}"
+broker_url: "redis://localhost"
 
 run_django_db_migrations: yes
 run_django_collectstatic: yes

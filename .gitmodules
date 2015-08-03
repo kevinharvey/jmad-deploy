@@ -1,0 +1,3 @@
+[submodule "roles/redis"]
+	path = roles/redis
+	url = git@github.com:DavidWittman/ansible-redis.git

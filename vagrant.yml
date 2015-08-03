@@ -16,6 +16,6 @@
   roles:
     - base
     - db
-    - rabbitmq
+    - redis
     - web
     - celery
