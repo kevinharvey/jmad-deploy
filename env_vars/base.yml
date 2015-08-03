@@ -1,9 +1,10 @@
 ---
 
-git_repo: https://github.com/jcalazan/youtube-audio-dl.git
+git_repo: https://github.com/kevinharvey/jmad.git
 
-project_name: youtube-audio-dl
-application_name: youtubeadl
+project_name: jmad-project
+application_name: jmad
+main_app: jmad
 
 ssl_dest_dir: /etc/ssl
 

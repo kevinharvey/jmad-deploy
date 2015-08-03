@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Shared folder from the host machine to the guest machine. Uncomment the line
   # below to enable it.
-  #config.vm.synced_folder "../../../my-cool-app", "/webapps/mycoolapp/my-cool-app"
+  config.vm.synced_folder "../jmad-project", "/webapps/jmad/jmad-project"
 
   # Ansible provisioner.
   config.vm.provision "ansible" do |ansible|
