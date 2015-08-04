@@ -2,4 +2,8 @@
 
 - include: dbservers.yml
 
+- include: redisservers.yml
+
+- include: celeryservers.yml
+
 - include: webservers.yml
