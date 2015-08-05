@@ -43,3 +43,6 @@ broker_url: "redis://localhost"
 
 run_django_db_migrations: yes
 run_django_collectstatic: yes
+
+superuser_username: bill
+superuser_email: bill@example.com

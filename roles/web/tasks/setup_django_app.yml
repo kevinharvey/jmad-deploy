@@ -32,3 +32,13 @@
   environment: django_environment
   when: run_django_collectstatic is defined and run_django_collectstatic
   tags: django.collectstatic
+
+- name: Create superuser with default password
+  django_manage:
+    command: jmad_create_superuser {{ superuser_username }} {{ superuser_email }}
+    app_path: "{{ project_path }}/{{ main_app }}"
+    virtualenv: "{{ virtualenv_path }}"
+    settings: "{{ django_settings_file }}"
+  environment: django_environment
+  when: superuser_username is defined and superuser_email is defined
+  tags: django.collectstatic
